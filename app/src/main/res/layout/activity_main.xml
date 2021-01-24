@@ -8,7 +8,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/text2"
+        android:inputType="phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_message"
@@ -18,9 +20,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button1"
+        android:textSize="15pt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ButtonText" />
+        android:text="Increase!" />
+    <Button
+        android:id="@+id/button2"
+        android:textSize="15pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Decrease!" />
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text1" />
+
+    <CheckBox android:id="@+id/checker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView android:id="@+id/checked"
+        android:text="Is not Checked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello_message">Guten Tag!</string>
+    <string name="app_name">Androiden Laben!</string>
+    <string name="ButtonText">Ich bin eine Button!</string>
 </resources>
