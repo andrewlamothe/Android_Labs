@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello_message">Guten Tag!</string>
-    <string name="app_name">Androiden Laben!</string>
-    <string name="ButtonText">Ich bin eine Button!</string>
+    <string name="hello_message">Schau dir meine GUI an</string>
+    <string name="app_name">Android Lab</string>
+    <string name="ButtonText">Kick hier</string>
+    <string name="CheckOut">Schau dir das an</string>
+    <string name="toggle">Ein / Ausschalten</string>
+    <string name="text_hint">Geben Sie hier ein..</string>
+    <string name="button_click">Hier ist mehr information</string>
+    <string name="snackbar_on">Der Schalter ist jetzt eingeschaltet</string>
+    <string name="snackbar_off">Der Schalter ist jetzt ausgeschaltet</string>
+    <string name="undo_string">Anrufen</string>
 </resources>
