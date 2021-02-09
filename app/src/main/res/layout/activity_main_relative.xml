@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:gravity="fill"
+        android:layout_width="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/text2"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:text="@string/hello_message"
+        android:textSize="30dp"
+         />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="246dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text2"
+        android:layout_alignParentStart="true"
+        android:gravity="fill"
+        android:text="@string/ButtonText" />
+
+    <CheckBox
+        android:gravity="fill"
+        android:id="@+id/checker"
+        android:layout_below="@+id/text2"
+        android:layout_toRightOf="@+id/flag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/CheckOut"/>
+
+    <ImageButton
+        android:id="@+id/flag"
+        android:layout_below="@+id/button"
+        android:layout_width="247dp"
+        android:layout_height="145dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/flag" />
+    <Switch
+        android:layout_toRightOf="@id/flag"
+        android:layout_below="@id/checker"
+        android:id="@+id/switcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/toggle"
+        />
+
+    <EditText
+        android:layout_width="247dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flag"
+        android:layout_marginTop="1dp"
+        android:hint="@string/text_hint"
+        android:inputType="textPersonName" />
+
+
+</RelativeLayout>
+
