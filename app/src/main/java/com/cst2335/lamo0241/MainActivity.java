@@ -22,7 +22,7 @@ private int counter = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_linear);
+        setContentView(R.layout.activity_main_grid);
         Switch switcher = findViewById(R.id.switcher);
         Button button1 = findViewById(R.id.button);
         button1.setOnClickListener(x -> {
