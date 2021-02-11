@@ -2,6 +2,7 @@ package com.cst2335.lamo0241;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.icu.text.StringSearch;
 import android.os.Bundle;
 import android.view.View;
@@ -21,10 +22,9 @@ private int counter = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_relative);
+        setContentView(R.layout.activity_main_linear);
         Switch switcher = findViewById(R.id.switcher);
         Button button1 = findViewById(R.id.button);
-
         button1.setOnClickListener(x -> {
                Toast.makeText(this,getString(R.string.button_click), Toast.LENGTH_LONG).show();
             }
