@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello_message">Schau dir meine GUI an</string>
-    <string name="app_name">Android Lab</string>
-    <string name="ButtonText">Kick hier</string>
-    <string name="CheckOut">Schau dir das an</string>
-    <string name="toggle">Ein / Ausschalten</string>
-    <string name="text_hint">Geben Sie hier ein..</string>
-    <string name="button_click">Hier ist mehr information</string>
-    <string name="snackbar_on">Der Schalter ist jetzt eingeschaltet</string>
-    <string name="snackbar_off">Der Schalter ist jetzt ausgeschaltet</string>
-    <string name="undo_string">Anrufen</string>
+    <string name="app_name">Android Labs</string>
+    <string name="firsttext">Geben sie ihre E-Mailadresse ein:</string>
+    <string name="secondtext">Geben Sie Ihr Passwort ein:</string>
+    <string name="emailhere">Geben Sie hier Ihre E-Mail-Adresse ein.</string>
+    <string name="youremail">Deine E-Mail:</string>
+    <string name="youremailenter">Geben sie ihre E-Mail Adresse ein</string>
+    <string name="profile">Dein Profil</string>
+    <string name="yourname">Dein Name:</string>
+    <string name="yourpicture">Dein Bild:</string>
+    <string name="login">ANMELDUNG</string>
+    <string name="entername">Gib deinen Namen ein</string>
+    <string name="buttonpicture">Klicken Sie auf die Schaltfläche oben, um ein Bild aufzunehmen</string>
 </resources>
