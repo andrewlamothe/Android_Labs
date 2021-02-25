@@ -12,4 +12,9 @@
     <string name="login">ANMELDUNG</string>
     <string name="entername">Gib deinen Namen ein</string>
     <string name="buttonpicture">Klicken Sie auf die Schaltfläche oben, um ein Bild aufzunehmen</string>
+    <string name="gotochat">Geh auf chat.</string>
+    <string name="send">Sended</string>
+    <string name="receieve">Erhalten</string>
+    <string name="typehere">Geben Sie hier Ein</string>
+    <string name="delete">Mochtest due Loeschen?</string>
 </resources>
