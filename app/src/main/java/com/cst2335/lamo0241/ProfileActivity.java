@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
@@ -32,10 +33,15 @@ public class ProfileActivity extends AppCompatActivity {
         emailText.setText(fromMain.getStringExtra("Email"));
 
         ImageButton mImageButton = findViewById(R.id.picture_button);
-
+        Button chatButton = findViewById(R.id.gotochat);
 
         mImageButton.setOnClickListener( click -> {
             dispatchTakePictureIntent();
+        });
+
+        chatButton.setOnClickListener( x -> {
+            Intent goToProfile = new Intent(ProfileActivity.this, ChatRoomActivity.class);
+            startActivity(goToProfile);
         });
     }
     @Override

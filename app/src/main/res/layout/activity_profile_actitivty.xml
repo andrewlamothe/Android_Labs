@@ -48,5 +48,10 @@
         android:layout_height="wrap_content"
         android:text="@string/buttonpicture"
         />
+    <Button
+        android:id="@+id/gotochat"
+        android:text="@string/gotochat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

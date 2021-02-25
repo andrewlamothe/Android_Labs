@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListView
+        android:id="@+id/chatlist"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+    <LinearLayout
+        android:layout_weight="0"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/sendbutton"
+            android:textSize="12dp"
+            android:layout_weight="1"
+            android:text="@string/send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </Button>
+
+        <EditText
+            android:id="@+id/chattext"
+            android:hint="@string/typehere"
+            android:layout_weight=".6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        />
+        <Button
+            android:id="@+id/recievebutton"
+            android:textSize="12dp"
+            android:text="@string/receieve"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+
+</LinearLayout>
