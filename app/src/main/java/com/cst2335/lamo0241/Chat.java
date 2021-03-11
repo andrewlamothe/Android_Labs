@@ -4,6 +4,8 @@ public class Chat {
     private String text;
     private Boolean send;
     private int position;
+    static long ID =0;
+    private long thisID;
 
     public int getPosition() {
         return position;
@@ -13,12 +15,20 @@ public class Chat {
         this.position = position;
     }
 
-    public Chat(String text, Boolean send) {
+    public Chat(String text, Boolean send){
+        thisID = ID;
+        ID++;
         this.text = text;
         this.send = send;
-        this.position = position;
-    }
 
+    }
+    public static void resetID(){
+        ID=0;
+    }
+    public void setID(long ID){
+        this.thisID = ID;
+    }
+    public long getID() {return thisID;}
     public String getText() {
         return text;
     }

@@ -25,16 +25,33 @@ public class ChatRoomActivity extends AppCompatActivity {
     int pos;
     int id;
 
+    ChatAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
         Button sendbutton = findViewById(R.id.sendbutton);
+
         Button recievebutton = findViewById(R.id.recievebutton);
         EditText chattext = findViewById(R.id.chattext);
         ListView chatlist = findViewById(R.id.chatlist);
+        SQLite db = new SQLite(this);
 
-        ChatAdapter adapter = new ChatAdapter(this, R.id.chatlist, chatArrayList);
+        db.getWritableDatabase();
+
+        adapter = new ChatAdapter(this, R.id.chatlist, chatArrayList);
+
+
+
+            try {
+                chatArrayList = db.getChat();
+                for (int x = 0; x < (chatArrayList.size()); x++) {
+                    chatArrayList.get(x).setPosition(x);
+                }
+            } catch (Exception e) {
+            }
+            adapter.notifyDataSetChanged();
+
 
         chatlist.setAdapter(adapter);
 
@@ -45,7 +62,10 @@ public class ChatRoomActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 delete = true;
                 if(delete){
+                    long index = chatArrayList.get(pos).getID();
+                    Log.e("INT INDEX IS", String.valueOf(index));
                     chatArrayList.remove(pos);
+                    db.removeChat(index);
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -62,8 +82,9 @@ public class ChatRoomActivity extends AppCompatActivity {
         });
 
 
-        chatlist.setOnItemLongClickListener((parent, view, position, id) -> {
-            alertbuilder.setMessage("Selected row is " + position + " with ID " + id);
+        chatlist.setOnItemLongClickListener((parent, view, position,id) -> {
+            alertbuilder.setMessage("Selected row is " + position + " with ID " + chatArrayList.get(position).getID());
+
             Log.e(ACTIVITY_SERVICE, "Pressed item " + position);
             AlertDialog alert = alertbuilder.create();
             alert.show();
@@ -74,17 +95,24 @@ public class ChatRoomActivity extends AppCompatActivity {
 
 
         sendbutton.setOnClickListener(click -> {
-            chatArrayList.add(new Chat(chattext.getText().toString(), true));
+            Chat sentChat = new Chat(chattext.getText().toString(), true);
+            db.addChat(sentChat);
+            chatArrayList.add(sentChat);
             adapter.notifyDataSetChanged();
             chattext.setText("");
         });
 
         recievebutton.setOnClickListener(click -> {
-            chatArrayList.add(new Chat(chattext.getText().toString(), false));
+            Chat sentChat = new Chat(chattext.getText().toString(), false);
+            db.addChat(sentChat);
+            chatArrayList.add(sentChat);
             adapter.notifyDataSetChanged();
             chattext.setText("");
         });
+
+
     }
+
 
      private class ChatAdapter extends BaseAdapter{
         private Context context;
@@ -107,8 +135,8 @@ public class ChatRoomActivity extends AppCompatActivity {
         }
 
         @Override
-        public long getItemId(int position) {
-            return position;
+        public long getItemId(int id) {
+            return chatArrayList.get(id).getID();
         }
 
         @Override
@@ -125,5 +153,6 @@ public class ChatRoomActivity extends AppCompatActivity {
             sendtext.setText(text);
             return convertView;
         }
+
     }
 }

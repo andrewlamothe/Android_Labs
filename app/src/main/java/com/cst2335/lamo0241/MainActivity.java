@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_linear);
         EditText emailText = findViewById(R.id.email);
         SharedPreferences lab3 = getSharedPreferences("lab3", MODE_PRIVATE);
+        SQLite db = new SQLite(this);
+        db.getWritableDatabase();
 
         emailText.setText(lab3.getString("email_address",""));
         Button login = findViewById(R.id.login);
@@ -35,5 +37,10 @@ public class MainActivity extends AppCompatActivity {
         EditText emailText = findViewById(R.id.email);
         emailEdit.putString("email_address", emailText.getText().toString());
         emailEdit.apply();
+    }
+    @Override
+    protected void onStart(){
+        super.onStart();
+
     }
 }
