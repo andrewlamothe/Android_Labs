@@ -36,9 +36,10 @@ public class SQLite extends SQLiteOpenHelper {
     public void printCursor(Cursor c, int version){
        int column_num = c.getColumnCount();
        int row_num = c.getCount();
-       String[] column_names = c.getColumnNames();
-       ArrayList<String> table_contents = new ArrayList<String>();
-       table_contents.add("VERSION " + String.valueOf(version));
+      // ArrayList<String> table_contents = new ArrayList<String>();
+        Log.e("VERSION:", String.valueOf(version));
+        Log.e("NUMBER OF ROWS:", String.valueOf(row_num));
+        Log.e("NUMBER OF COLUMNS:", String.valueOf(column_num));
         c.moveToFirst();
         do {
             String content1 = c.getString(c.getColumnIndex(MESSAGE_COLUMN));
@@ -50,8 +51,7 @@ public class SQLite extends SQLiteOpenHelper {
             c.moveToNext();
         }
         while(!c.isAfterLast());
-        Log.e("NUMBER OF ROWS:", String.valueOf(row_num));
-        Log.e("NUMBER OF COLUMNS:", String.valueOf(column_num));
+
 
     }
     int getVersion(){
