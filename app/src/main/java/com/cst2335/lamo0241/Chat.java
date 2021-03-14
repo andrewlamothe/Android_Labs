@@ -16,8 +16,7 @@ public class Chat {
     }
 
     public Chat(String text, Boolean send){
-        thisID = ID;
-        ID++;
+
         this.text = text;
         this.send = send;
 

@@ -96,7 +96,8 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         sendbutton.setOnClickListener(click -> {
             Chat sentChat = new Chat(chattext.getText().toString(), true);
-            db.addChat(sentChat);
+            long idsend = db.addChat(sentChat);
+            sentChat.setID(idsend);
             chatArrayList.add(sentChat);
             adapter.notifyDataSetChanged();
             chattext.setText("");
@@ -104,8 +105,9 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         recievebutton.setOnClickListener(click -> {
             Chat sentChat = new Chat(chattext.getText().toString(), false);
-            db.addChat(sentChat);
+            long idsend = db.addChat(sentChat);
             chatArrayList.add(sentChat);
+            sentChat.setID(idsend);
             adapter.notifyDataSetChanged();
             chattext.setText("");
         });

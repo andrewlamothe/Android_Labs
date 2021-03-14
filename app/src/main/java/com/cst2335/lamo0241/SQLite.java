@@ -29,7 +29,7 @@ public class SQLite extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String makeTable = "CREATE TABLE IF NOT EXISTS " +TABLE_NAME + "("+ID_COLUMN+" " +
-                "LONG PRIMARY KEY, "+MESSAGE_COLUMN+" TEXT, "+IS_SENT+" BOOLEAN)";
+                "INTEGER PRIMARY KEY AUTOINCREMENT, "+MESSAGE_COLUMN+" TEXT, "+IS_SENT+" BOOLEAN)";
         db.execSQL(makeTable);
 
     }
@@ -57,13 +57,14 @@ public class SQLite extends SQLiteOpenHelper {
     int getVersion(){
         return VERSION_NUM;
     }
-    void addChat(Chat chat) {
+    long addChat(Chat chat) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues chats = new ContentValues();
         chats.put("message", chat.getText());
         chats.put("sent", chat.getSend());
-        chats.put("id", chat.getID());
-        db.insert(TABLE_NAME, null, chats);
+        long really = db.insert(TABLE_NAME, null, chats);
+        Log.e("RETURNED LONG ID",String.valueOf(really));
+        return really;
         }
     public int returnCount(){
         return this.count;
