@@ -34,7 +34,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         ImageButton mImageButton = findViewById(R.id.picture_button);
         Button chatButton = findViewById(R.id.gotochat);
-
+        Button weatherButton = findViewById(R.id.gotoweather);
         mImageButton.setOnClickListener( click -> {
             dispatchTakePictureIntent();
         });
@@ -43,6 +43,13 @@ public class ProfileActivity extends AppCompatActivity {
             Intent goToProfile = new Intent(ProfileActivity.this, ChatRoomActivity.class);
             startActivity(goToProfile);
         });
+
+
+        weatherButton.setOnClickListener(x -> {
+            Intent gotoweather = new Intent(ProfileActivity.this, WeatherForecast.class);
+            startActivity(gotoweather);
+        });
+
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -16,4 +16,11 @@
     <string name="receieve">Recieve</string>
     <string name="typehere">Type here..</string>
     <string name="delete">Do you want to delete?</string>
+    <string name="gotoweather">Weather</string>
+    <string name="title_activity_weather_forecast">WeatherForecast</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>
