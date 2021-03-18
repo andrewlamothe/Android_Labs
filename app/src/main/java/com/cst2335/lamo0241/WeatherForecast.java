@@ -50,8 +50,9 @@ public class WeatherForecast extends AppCompatActivity {
         Bitmap picture;
 
 
-        public Bitmap getPicture() throws IOException  {
+        public void getPicture() throws IOException {
             Bitmap image = null;
+            Log.i("Looking for file: ", icon +".png");
             if (!fileExistance(icon+".png")){
                 Log.i("FILE NOT FOUND, DOWNLOADING","type: ICON");
             try {
@@ -60,26 +61,29 @@ public class WeatherForecast extends AppCompatActivity {
                 connection.connect();
                 int responseCode = connection.getResponseCode();
                 if (responseCode == 200) {
-                    picture = BitmapFactory.decodeStream(connection.getInputStream());
+                    image = BitmapFactory.decodeStream(connection.getInputStream());
                 }
+                FileOutputStream outputStream = openFileOutput( icon + ".png", Context.MODE_PRIVATE);
+                image.compress(Bitmap.CompressFormat.PNG, 80, outputStream);
+                outputStream.flush();
+                outputStream.close();
+                this.picture=image;
             }
             catch (Exception e){Log.e("IMAGE ERROR", String.valueOf(e)); }
 
-            FileOutputStream outputStream = openFileOutput( icon + ".png", Context.MODE_PRIVATE);
-            image.compress(Bitmap.CompressFormat.PNG, 80, outputStream);
-            outputStream.flush();
-            outputStream.close();
+
             }
             else {
                 Log.i("FILE ALREADY DOWNLOADED","type: ICON");
                 FileInputStream fis = null;
                 try {    fis = openFileInput(icon+".png");   }
                 catch (FileNotFoundException e) {    e.printStackTrace();  }
-                picture = BitmapFactory.decodeStream(fis);
+                this.picture = BitmapFactory.decodeStream(fis);
 
             }
+
             publishProgress(100);
-            return picture;
+
         }
         public boolean fileExistance(String fname){
             File file = getBaseContext().getFileStreamPath(fname);
@@ -108,6 +112,7 @@ public class WeatherForecast extends AppCompatActivity {
 
               //open the connection
               HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
               publishProgress(25);
               //wait for data:
               InputStream response = urlConnection.getInputStream();
@@ -156,8 +161,10 @@ public class WeatherForecast extends AppCompatActivity {
           {
             Log.e("ERROR", "error "+e);
           }
+
             publishProgress(75);
-            try {
+
+              try {
                 getPicture();
             } catch (IOException e) {
                 e.printStackTrace();
